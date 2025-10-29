@@ -26,7 +26,7 @@ function App() {
         </p>
       </div>
       <p className="read-the-docs">
-          Cliquez ici pour ajouter +1 au compteur que vous avez ci-dessus svp !!!!!!
+          Non je rigole
       </p>
     </>
   )
