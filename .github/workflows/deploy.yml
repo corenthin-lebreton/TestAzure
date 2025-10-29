@@ -53,6 +53,12 @@ jobs:
       
       - name: Restart Container App to pull latest image
         run: |
+          REVISION=$(az containerapp revision list \
+            --name ${{ secrets.CONTAINERAPP_NAME }} \
+            --resource-group ${{ secrets.RESOURCE_GROUP }} \
+            --query "[0].name" -o tsv)
+          
           az containerapp revision restart \
             --name ${{ secrets.CONTAINERAPP_NAME }} \
-            --resource-group ${{ secrets.RESOURCE_GROUP }}
+            --resource-group ${{ secrets.RESOURCE_GROUP }} \
+            --revision $REVISION
